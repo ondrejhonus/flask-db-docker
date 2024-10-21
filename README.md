@@ -22,9 +22,7 @@ pip install -r requirements.txt
 docker-compose up --build
 ```
 
-### You can then see your running web app on [localhost:5000](http://localhost:5000)
+#### You can then see your running web app on [localhost:5000](http://localhost:5000)
+<hr>
 
-### Then you can run the container with
-```
-docker-compose up
-```
+#### And if you want to run the container again, use ```docker-compose up```
