@@ -22,6 +22,8 @@ pip install -r requirements.txt
 docker-compose up --build
 ```
 
+### You can then see your running web app on [localhost:5000](http://localhost:5000)
+
 ### Then you can run the container with
 ```
 docker-compose up
