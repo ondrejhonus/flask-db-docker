@@ -1,21 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Todo List</title> 
-</head> 
-<body> 
-    <h1>Todo List</h1> 
-    <form action="/add_task" method="POST"> 
-        <input type="text" name="task_name" placeholder="Task name"> 
-        <button type="submit">Add Task</button> 
-    </form> 
-    <ul> 
-        {% for task in tasks %} 
-            <li>{{ task.name }} <a href="/delete_task/{{ task._id }}">Delete</a></li> 
-        {% endfor %} 
-    </ul> 
-</body> 
-</html> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="is-size-1">New note</h1>
+        <form action="/add_note" method="POST">
+            <input type="text" name="note_name" placeholder="Note name" class="input">
+            <button type="submit" class="button">Add note</button>
+        </form>
+    </div>
+    <h3 class="is-size-3">Notes</h3>
+    <ul>
+        <div class="notes">
+            {% for note in notes %}
+            <div class="row">
+                <div class="note">
+                    <li>{{ note.name }}</li>
+                </div>
+
+                <a href="/delete_note/{{ note._id }}"><i class="delete"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </ul>
+</body>
+
+</html>

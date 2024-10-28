@@ -1,12 +1,12 @@
 # About
-This is a docker container that uses Flask and MongoDB to host a TO-DO list.
+This is a docker container that uses Flask and MongoDB to host a notes web app.
 
 # Installation
 ```
 # Clone the gitub repo
 git clone https://github.com/ondrejhonus/flask-db-docker.git
 
-# Go into the 
+# Go into the directory 
 cd flask-db-docker
 
 # Create a virtual enviroment
@@ -18,7 +18,7 @@ python -m venv .venv
 # Install the requirements
 pip install -r requirements.txt
 
-# Run an build the app
+# Build and run the app
 docker-compose up --build
 ```
 

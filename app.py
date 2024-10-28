@@ -7,23 +7,23 @@ app = Flask(__name__)
   
 client = MongoClient(host='test_mongodb',port=27017, username='root', password='pass',authSource="admin") 
 db = client.mytododb 
-tasks_collection = db.tasks 
+notes_collection = db.notes 
   
 @app.route('/') 
 def index(): 
-    tasks = tasks_collection.find() 
-    return render_template('index.html', tasks=tasks) 
+    notes = notes_collection.find() 
+    return render_template('index.html', notes=notes) 
   
-@app.route('/add_task', methods=['POST']) 
-def add_task(): 
-    task_name = request.form.get('task_name') 
-    if task_name: 
-        tasks_collection.insert_one({'name': task_name}) 
+@app.route('/add_note', methods=['POST']) 
+def add_note(): 
+    note_name = request.form.get('note_name') 
+    if note_name: 
+        notes_collection.insert_one({'name': note_name}) 
     return redirect(url_for('index')) 
   
-@app.route('/delete_task/<task_id>', methods=['GET']) 
-def delete_task(task_id): 
-    tasks_collection.delete_one({'_id': ObjectId(task_id)}) 
+@app.route('/delete_note/<note_id>', methods=['GET']) 
+def delete_note(note_id): 
+    notes_collection.delete_one({'_id': ObjectId(note_id)}) 
     return redirect(url_for('index')) 
   
 if __name__ == '__main__': 
